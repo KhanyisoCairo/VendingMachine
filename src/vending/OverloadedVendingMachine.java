@@ -65,7 +65,7 @@ public class OverloadedVendingMachine {
         }
     }
     public void addStock(SaltySnacks saltySnacks){
-        if(saltySnacks != null){
+        if(saltySnacks == null){
             saltySnacksQyt++;
         }
     }
@@ -80,22 +80,25 @@ public class OverloadedVendingMachine {
         }
     }
     public int getStock(Chocolate chocolate){
+        int countStock = 0;
         if (chocolate != null){
-            return  chocolateQyt;
+            return  chocolateQyt += countStock;
         }
-        return  0;
+        return  countStock;
     }
     public int getStock(SoftDrinks softDrinks){
+        int countStock  = 0 ;
         if (softDrinks != null){
-            return  softDrinksQyt;
+            return  softDrinksQyt += countStock;
         }
-        return  0;
+        return  countStock;
     }
     public int getStock(SaltySnacks saltySnacks){
+        int countStock = 0;
         if (saltySnacks != null){
-            return  saltySnacksQyt;
+            return  saltySnacksQyt += countStock;
         }
-        return  0;
+        return  countStock;
     }
     public int getStock(Products products){
         if (products != null){
