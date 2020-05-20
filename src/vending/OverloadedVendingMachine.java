@@ -1,32 +1,32 @@
 package vending;
 
 public class OverloadedVendingMachine {
-    public int ChocolateQyt;
-    public int SoftDrinksQyt;
-    public int SaltySnacksQyt;
+    public int chocolateQyt;
+    public int softDrinksQyt;
+    public int saltySnacksQyt;
 
     public void buy(Products products) {
         if (products instanceof SoftDrinks) {
-            --SoftDrinksQyt;
-            if (SoftDrinksQyt == 0) {
+            --softDrinksQyt;
+            if (softDrinksQyt == 0) {
                 return ;
             }
         } else if (products instanceof Chocolate) {
-            --ChocolateQyt;
-            if (ChocolateQyt == 0) {
+            --chocolateQyt;
+            if (chocolateQyt == 0) {
                 return;
             }
         } else if (products instanceof SaltySnacks) {
-            --SaltySnacksQyt;
-            if (SaltySnacksQyt == 0) {
+            --saltySnacksQyt;
+            if (saltySnacksQyt == 0) {
                 return;
             }
         }
     }
     public void buy(Chocolate chocolate){
         if (chocolate != null){
-            --ChocolateQyt;
-            if (ChocolateQyt == 0){
+            --chocolateQyt;
+            if (chocolateQyt == 0){
                 return;
             }
         }
@@ -34,82 +34,73 @@ public class OverloadedVendingMachine {
     }
     public void buy(SoftDrinks softDrinks){
         if (softDrinks != null){
-            --SoftDrinksQyt;
-            if (SoftDrinksQyt == 0){
+            --softDrinksQyt;
+            if (softDrinksQyt == 0){
                 return;
             }
         }
     }
     public void buy(SaltySnacks saltySnacks){
         if (saltySnacks != null){
-            --SaltySnacksQyt;
-            if (SaltySnacksQyt == 0){
+            --saltySnacksQyt;
+            if (saltySnacksQyt == 0){
                 return;
             }
         }
     }
-
       public   OverloadedVendingMachine(int softDrinkQty, int saltySnacksQty, int chocolatesQty){
 
-        this.ChocolateQyt = chocolatesQty;
-        this.SaltySnacksQyt = saltySnacksQty;
-        this.SoftDrinksQyt = softDrinkQty;
+        this.chocolateQyt = chocolatesQty;
+        this.saltySnacksQyt = saltySnacksQty;
+        this.softDrinksQyt = softDrinkQty;
     }
     public void addStock(Chocolate chocolate){
         if(chocolate != null){
-            ChocolateQyt++;
+            chocolateQyt++;
         }
     }
     public void addStock(SoftDrinks softDrinks){
         if(softDrinks != null){
-            SoftDrinksQyt++;
+            softDrinksQyt++;
         }
     }
     public void addStock(SaltySnacks saltySnacks){
         if(saltySnacks != null){
-            SaltySnacksQyt++;
+            saltySnacksQyt++;
         }
     }
 
     public void addStock(Products products){
         if(products instanceof Chocolate){
-            ChocolateQyt++;
+            chocolateQyt++;
         }else if(products instanceof SoftDrinks){
-            SoftDrinksQyt++;
+            softDrinksQyt++;
         }else if(products instanceof SaltySnacks){
-            SaltySnacksQyt++;
+            saltySnacksQyt++;
         }
     }
     public int getStock(Chocolate chocolate){
         if (chocolate != null){
-            return  ChocolateQyt;
+            return  chocolateQyt;
         }
         return  0;
     }
     public int getStock(SoftDrinks softDrinks){
         if (softDrinks != null){
-            return  SoftDrinksQyt;
+            return  softDrinksQyt;
         }
         return  0;
     }
     public int getStock(SaltySnacks saltySnacks){
         if (saltySnacks != null){
-            return  SaltySnacksQyt;
+            return  saltySnacksQyt;
         }
         return  0;
     }
     public int getStock(Products products){
-        if(products instanceof Chocolate){
-            return ChocolateQyt;
+        if (products != null){
+            return chocolateQyt+saltySnacksQyt+softDrinksQyt;
         }
-        else if (products instanceof SoftDrinks){
-            return SoftDrinksQyt;
-        }
-        else if (products instanceof SaltySnacks){
-            return SaltySnacksQyt;
-        }
-        else {
-            return SaltySnacksQyt+SaltySnacksQyt+ChocolateQyt;
-        }
+        return 0;
     }
 }
