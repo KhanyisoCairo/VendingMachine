@@ -10,20 +10,19 @@ import static org.junit.Assert.assertEquals;
     class OverloadedVendingMachineTest {
     @Test
     void ShouldAddStock(){
-    OverloadedVendingMachine overloadedVendingMachine = new OverloadedVendingMachine(6,5,2);
-    Chocolate chocolate = new Chocolate();
-    SoftDrinks softDrinks = new SoftDrinks();
-    SaltySnacks saltySnacks = new SaltySnacks();
+         OverloadedVendingMachine overloadedVendingMachine = new OverloadedVendingMachine(6,5,2);
+         Chocolate chocolate = new Chocolate();
+         SoftDrinks softDrinks = new SoftDrinks();
+         SaltySnacks saltySnacks = new SaltySnacks();
 
-     overloadedVendingMachine.addStock(chocolate);
-     overloadedVendingMachine.addStock(softDrinks);
-     overloadedVendingMachine.addStock(saltySnacks);
+         overloadedVendingMachine.addStock(chocolate);
+         overloadedVendingMachine.addStock(softDrinks);
+         overloadedVendingMachine.addStock(saltySnacks);
 
-    assertEquals(overloadedVendingMachine.getStock(chocolate),3);
-    assertEquals(overloadedVendingMachine.getStock(softDrinks),7);
-    assertEquals(overloadedVendingMachine.getStock(saltySnacks),6);
+         assertEquals(overloadedVendingMachine.getStock(chocolate),3);
+         assertEquals(overloadedVendingMachine.getStock(softDrinks),7);
+         assertEquals(overloadedVendingMachine.getStock(saltySnacks),5);
      }
-
         @Test
         void ShouldBuyStock(){
             OverloadedVendingMachine overloadedVendingMachine = new OverloadedVendingMachine(6,5,10);
@@ -53,9 +52,9 @@ import static org.junit.Assert.assertEquals;
             overloadedVendingMachine.buy(softDrinks);
             overloadedVendingMachine.addStock(saltySnacks);
             overloadedVendingMachine.buy(saltySnacks);
-            
+
             assertEquals(overloadedVendingMachine.getStock(chocolate),10);
             assertEquals(overloadedVendingMachine.getStock(softDrinks),11);
-            assertEquals(overloadedVendingMachine.getStock(saltySnacks),5);
+            assertEquals(overloadedVendingMachine.getStock(saltySnacks),4);
         }
     }

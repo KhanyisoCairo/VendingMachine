@@ -7,20 +7,26 @@ public class OverloadedVendingMachine {
 
     public void buy(Products products) {
         if (products instanceof SoftDrinks) {
-            --softDrinksQyt;
-            if (softDrinksQyt == 0) {
-                return ;
+            if (softDrinksQyt >= 0){
+                --softDrinksQyt;
+                if (softDrinksQyt == 0) {
+                    return ;
+                }
             }
         } else if (products instanceof Chocolate) {
-            --chocolateQyt;
-            if (chocolateQyt == 0) {
-                return;
+            if (chocolateQyt >= 0){
+                --chocolateQyt;
+                if (chocolateQyt == 0) {
+                    return;
+                }
             }
         } else if (products instanceof SaltySnacks) {
-            --saltySnacksQyt;
-            if (saltySnacksQyt == 0) {
-                return;
-            }
+           if (saltySnacksQyt >= 0){
+               --saltySnacksQyt;
+               if (saltySnacksQyt == 0) {
+                   return;
+               }
+           }
         }
     }
     public void buy(Chocolate chocolate){
@@ -30,7 +36,6 @@ public class OverloadedVendingMachine {
                 return;
             }
         }
-
     }
     public void buy(SoftDrinks softDrinks){
         if (softDrinks != null){
